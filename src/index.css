@@ -1,0 +1,91 @@
+@import url('https://fonts.googleapis.com/css2?family=Cormorant+Garamond:ital,wght@0,300;0,400;0,500;0,600;0,700;1,300;1,400;1,500;1,600;1,700&family=Inter:wght@100..900&display=swap');
+@import "tailwindcss";
+
+@theme {
+  --font-serif: "Cormorant Garamond", serif;
+  --font-sans: "Inter", sans-serif;
+  
+  --color-brand-olive: #5A5A40;
+  --color-brand-cream: #F5F5F0;
+  --color-brand-ink: #1A1A1A;
+  --color-brand-accent: #D4A373;
+}
+
+body {
+  @apply bg-brand-cream text-brand-ink font-sans antialiased;
+}
+
+h1, h2, h3, .font-serif {
+  @apply font-serif;
+}
+
+.menu-section-title {
+  @apply font-serif text-3xl md:text-4xl mb-8 border-b border-brand-olive/20 pb-2 flex items-center gap-3 italic;
+}
+
+.menu-item-title {
+  @apply font-serif text-xl md:text-2xl font-medium flex justify-between items-baseline;
+}
+
+.menu-item-description {
+  @apply font-sans text-sm md:text-base text-brand-ink/70 mt-1 leading-relaxed italic;
+}
+
+.dietary-tag {
+  @apply font-sans text-[9px] font-bold tracking-[0.1em] uppercase px-1.5 py-0.5 rounded border border-brand-olive/30 text-brand-olive/80;
+}
+
+@media print {
+  .no-print {
+    display: none !important;
+  }
+  
+  body {
+    background-color: white !important;
+    color: black !important;
+  }
+
+  header {
+    height: auto !important;
+    padding: 40px 0 !important;
+    background: white !important;
+    color: black !important;
+    border-bottom: 2px solid #1A1A1A !important;
+  }
+
+  header img {
+    display: none !important;
+  }
+
+  header .relative {
+    position: static !important;
+  }
+
+  main {
+    padding: 0 !important;
+    max-width: 100% !important;
+  }
+
+  section {
+    break-inside: avoid;
+  }
+
+  .menu-section-title {
+    border-bottom-color: black !important;
+  }
+
+  .menu-item-title span:nth-child(2) {
+    border-bottom-color: #ccc !important;
+  }
+
+  footer {
+    break-inside: avoid;
+    border-top-color: black !important;
+  }
+
+  /* Force background colors if needed, but usually white is better for PDF */
+  .bg-brand-olive\/5 {
+    background-color: #f9f9f7 !important;
+    -webkit-print-color-adjust: exact;
+  }
+}
